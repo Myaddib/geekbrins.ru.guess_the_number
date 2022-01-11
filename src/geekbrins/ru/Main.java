@@ -1,5 +1,7 @@
 package geekbrins.ru;
 
+
+
 import java.util.Scanner;
 
 public class Main {
@@ -7,17 +9,18 @@ public class Main {
 
     public static void main(String[] args) {
         // write your code here
-        System.out.println("Угадайте число!");
 
-        int range = 100;
-        int number = (int) (Math.random() * range);
-        int count = outputCounr(range,number);
-        System.out.println("Вы угадали с "+count+" попытки.");
+        for (int range=10; range<=30; range +=10) {
+            System.out.println("Угадайте число!");
+            int count = outputCounr(range);
+            System.out.println("Вы угадали с " + count + " попытки.");
+        }
 
     }
-    private static int outputCounr (int ranger, int number){
+    private static int outputCounr (int ranger){
         Scanner scanner = new Scanner(System.in);
         int count = 0;
+        int number = (int) (Math.random() * ranger);
         while (true) {
             System.out.println("Угадайте число от 0 до " + ranger);
             int input_number = scanner.nextInt();
@@ -32,7 +35,6 @@ public class Main {
             }
             count++;
         }
-        scanner.close();
         return count;
     }
 
