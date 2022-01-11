@@ -4,15 +4,22 @@ import java.util.Scanner;
 
 public class Main {
 
+
     public static void main(String[] args) {
         // write your code here
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Угадайте число!");
-        int count = 0;
+
         int range = 100;
         int number = (int) (Math.random() * range);
+        int count = outputCounr(range,number);
+        System.out.println("Вы угадали с "+count+" попытки.");
+
+    }
+    private static int outputCounr (int ranger, int number){
+        Scanner scanner = new Scanner(System.in);
+        int count = 0;
         while (true) {
-            System.out.println("Угадайте число от 0 до " + range);
+            System.out.println("Угадайте число от 0 до " + ranger);
             int input_number = scanner.nextInt();
             if (input_number == number) {
                 System.out.println("Ура, вы угадали!!!");
@@ -25,7 +32,8 @@ public class Main {
             }
             count++;
         }
-        System.out.println("Вы угадали с "+count+" попытки.");
         scanner.close();
+        return count;
     }
+
 }
